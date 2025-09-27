@@ -163,7 +163,15 @@ function App() {
               Forjando campeões através do Muay Thai, Boxe e Jiu-Jítsu
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105">
+              <button
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/554796184529?text=Olá! Tenho interesse em agendar uma aula experimental.",
+                    "_blank"
+                  )
+                }
+                className="bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
+              >
                 Agendar Aula Experimental
               </button>
               <button className="border-2 border-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all">
