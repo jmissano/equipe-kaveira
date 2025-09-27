@@ -174,7 +174,14 @@ function App() {
               >
                 Agendar Aula Experimental
               </button>
-              <button className="border-2 border-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all">
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("horarios")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="border-2 border-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all"
+              >
                 Ver Horários
               </button>
             </div>
