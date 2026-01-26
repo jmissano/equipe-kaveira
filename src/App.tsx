@@ -19,46 +19,67 @@ function App() {
 
   const ibiramaSchedule = {
     "Segunda e Quarta": [
+      { time: "15:00H", activity: "MMA MISTO" },
       { time: "16:10H", activity: "MUAY THAI" },
       { time: "17:10H", activity: "BOXE" },
       { time: "18:10H", activity: "JIU-JÍTSU" },
       { time: "19:15H", activity: "MUAY THAI" },
       { time: "20:15H", activity: "MUAY THAI FEMININO" },
+      { time: "21:15H", activity: "BOXE" },
       {
         time: "22:15H",
-        activity: "MUAY THAI (HORÁRIO ESPECIAL PRA FACULDADE)",
+        activity: "MUAY THAI (HORÁRIO ESPECIAL PARA FACULDADE)",
       },
     ],
     "Terça e Quinta": [
-      { time: "10:10H", activity: "MUAY THAI" },
-      { time: "12:00H", activity: "BOXE" },
-      { time: "18:00H", activity: "JIU-JÍTSU KIDS (6 A 8 ANOS)" },
-      { time: "19:15H", activity: "JIU-JÍTSU KIDS (9 A 12 ANOS)" },
+      { time: "06:00H", activity: "MUAY THAI" },
+      { time: "07:00H", activity: "MUAY THAI KIDS" },
+      { time: "08:00H", activity: "JIU-JÍTSU KIDS" },
+      { time: "09:00H", activity: "JIU-JÍTSU" },
+      { time: "11:00H", activity: "MUAY THAI" },
+      { time: "18:00H", activity: "JIU-JÍTSU KIDS (5 A 7 ANOS)" },
+      {
+        time: "19:10H",
+        activity: "JIU-JÍTSU KIDS - INSTRUTOR MICHAEL (8 A 13 ANOS)",
+      },
     ],
-    Sexta: [
+    "Sexta-feira": [
+      { time: "15:00H", activity: "MMA MISTO" },
       { time: "16:10H", activity: "MUAY THAI" },
       { time: "17:10H", activity: "MUAY THAI KIDS" },
       { time: "18:10H", activity: "JIU-JÍTSU KIDS" },
       { time: "19:15H", activity: "MUAY THAI MISTO" },
       { time: "20:15H", activity: "JIU-JÍTSU SEM KIMONO" },
     ],
-    "Quinta e Sexta": [{ time: "15:00H", activity: "JIU-JÍTSU SEM KIMONO" }],
   };
 
   const getulioSchedule = {
     "Terça e Quinta": [
-      { time: "06:00H", activity: "MUAY THAI" },
-      { time: "07:20H", activity: "JIU-JÍTSU" },
       { time: "15:00H", activity: "JIU-JÍTSU" },
       { time: "16:00H", activity: "BOXE" },
       { time: "17:00H", activity: "MUAY THAI" },
       { time: "18:00H", activity: "JIU-JÍTSU KIDS" },
       { time: "19:10H", activity: "MUAY THAI" },
-      { time: "20:15H", activity: "MUAY THAI MASCULINO" },
-      { time: "20:15H", activity: "MUAY THAI FEMININO" },
-      { time: "21:15H", activity: "JIU-JÍTSU" },
+      { time: "20:15H", activity: "MUAY THAI - INSTRUTOR GIOVANE" },
+      { time: "20:15H", activity: "JIU-JÍTSU" },
     ],
-    Sábado: [{ time: "09:00H", activity: "MUAY THAI FEMININO" }],
+    Sexta: [{ time: "20:15H", activity: "MUAY THAI - INSTRUTOR GIOVANE" }],
+    Sábado: [
+      { time: "07:00H", activity: "JIU-JÍTSU" },
+      { time: "08:00H", activity: "MUAY THAI KIDS" },
+      { time: "09:00H", activity: "MUAY THAI FEMININO" },
+      { time: "10:00H", activity: "MUAY THAI" },
+    ],
+  };
+
+  const joseBoiteuxSchedule = {
+    "Segunda e Quarta": [
+      { time: "19:30H", activity: "MUAY THAI - INSTRUTOR JAISON" },
+    ],
+    Domingo: [
+      { time: "08:00H", activity: "MUAY THAI KIDS - PROFESSOR TONI" },
+      { time: "09:00H", activity: "MUAY THAI ADULTO - PROFESSOR TONI" },
+    ],
   };
 
   return (
@@ -167,7 +188,7 @@ function App() {
                 onClick={() =>
                   window.open(
                     "https://wa.me/554796184529?text=Olá! Tenho interesse em agendar uma aula experimental.",
-                    "_blank"
+                    "_blank",
                   )
                 }
                 className="bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
@@ -255,7 +276,7 @@ function App() {
             Nossos <span className="text-red-500">Horários</span>
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Ibirama Schedule */}
             <div className="bg-black rounded-lg p-6">
               <div className="flex items-center mb-6">
@@ -275,7 +296,9 @@ function App() {
                         className="flex justify-between items-center bg-gray-800 p-3 rounded"
                       >
                         <span className="font-mono text-white">{cls.time}</span>
-                        <span className="text-gray-300">{cls.activity}</span>
+                        <span className="text-gray-300 text-right text-sm">
+                          {cls.activity}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -302,7 +325,38 @@ function App() {
                         className="flex justify-between items-center bg-gray-800 p-3 rounded"
                       >
                         <span className="font-mono text-white">{cls.time}</span>
-                        <span className="text-gray-300">{cls.activity}</span>
+                        <span className="text-gray-300 text-right text-sm">
+                          {cls.activity}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* José Boiteux Schedule */}
+            <div className="bg-black rounded-lg p-6">
+              <div className="flex items-center mb-6">
+                <MapPin className="text-red-500 mr-3" size={24} />
+                <h3 className="text-2xl font-bold">JOSÉ BOITEUX</h3>
+              </div>
+
+              {Object.entries(joseBoiteuxSchedule).map(([day, classes]) => (
+                <div key={day} className="mb-6">
+                  <h4 className="text-red-500 font-bold text-lg mb-3">
+                    {day.toUpperCase()}
+                  </h4>
+                  <div className="space-y-2">
+                    {classes.map((cls, index) => (
+                      <div
+                        key={index}
+                        className="flex justify-between items-center bg-gray-800 p-3 rounded"
+                      >
+                        <span className="font-mono text-white">{cls.time}</span>
+                        <span className="text-gray-300 text-right text-sm">
+                          {cls.activity}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -320,7 +374,7 @@ function App() {
             Entre em <span className="text-white">Contato</span>
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div>
               <h3 className="text-2xl font-bold mb-6">Unidade Ibirama</h3>
               <div className="space-y-4">
@@ -334,7 +388,7 @@ function App() {
                 </div>
                 <div className="flex items-center">
                   <Clock className="mr-3" size={20} />
-                  <span>Funcionamento: Segunda à Sexta</span>
+                  <span>Segunda à Sexta</span>
                 </div>
               </div>
             </div>
@@ -354,7 +408,25 @@ function App() {
                 </div>
                 <div className="flex items-center">
                   <Clock className="mr-3" size={20} />
-                  <span>Funcionamento: Terça, Quinta e Sábado</span>
+                  <span>Terça, Quinta e Sábado</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Unidade José Boiteux</h3>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <MapPin className="mr-3" size={20} />
+                  <span>Endereço: José Boiteux - SC</span>
+                </div>
+                <div className="flex items-center">
+                  <Phone className="mr-3" size={20} />
+                  <span>Telefone: (47)9618-4529</span>
+                </div>
+                <div className="flex items-center">
+                  <Clock className="mr-3" size={20} />
+                  <span>Segunda, Quarta e Domingo</span>
                 </div>
               </div>
             </div>
@@ -365,7 +437,7 @@ function App() {
               onClick={() =>
                 window.open(
                   "https://wa.me/554796184529?text=Olá! Tenho interesse em agendar uma aula experimental.",
-                  "_blank"
+                  "_blank",
                 )
               }
               className="bg-white text-red-900 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
