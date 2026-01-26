@@ -21,10 +21,10 @@ function App() {
     "Segunda e Quarta": [
       { time: "15:00H", activity: "MMA MISTO" },
       { time: "16:10H", activity: "MUAY THAI" },
-      { time: "17:10H", activity: "BOXE" },
+      { time: "17:10H", activity: "MUAY THAI KIDS" },
       { time: "18:10H", activity: "JIU-JÍTSU" },
       { time: "19:15H", activity: "MUAY THAI" },
-      { time: "20:15H", activity: "MUAY THAI FEMININO" },
+      { time: "20:15H", activity: "MUAY THAI" },
       { time: "21:15H", activity: "BOXE" },
       {
         time: "22:15H",
