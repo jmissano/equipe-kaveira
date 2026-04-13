@@ -19,35 +19,43 @@ function App() {
 
   const ibiramaSchedule = {
     "Segunda e Quarta": [
-      { time: "15:00H", activity: "MMA MISTO" },
       { time: "16:10H", activity: "MUAY THAI" },
-      { time: "17:10H", activity: "MUAY THAI KIDS" },
+      { time: "17:10H", activity: "MMA" },
       { time: "18:10H", activity: "JIU-JÍTSU" },
       { time: "19:15H", activity: "MUAY THAI" },
       { time: "20:15H", activity: "MUAY THAI" },
       { time: "21:15H", activity: "BOXE" },
       {
         time: "22:15H",
+        activity: "MUAY THAI (Horário Especial para Faculdade)",
+      },
+      {
+        time: "22:15H",
         activity: "MUAY THAI (HORÁRIO ESPECIAL PARA FACULDADE)",
       },
     ],
     "Terça e Quinta": [
-      { time: "06:00H", activity: "MUAY THAI" },
-      { time: "07:00H", activity: "MUAY THAI KIDS" },
+      { time: "05:45H", activity: "MUAY THAI" },
+      { time: "07:00H", activity: "JIU JÍTSU" },
       { time: "08:00H", activity: "JIU-JÍTSU KIDS" },
-      { time: "09:00H", activity: "JIU-JÍTSU" },
-      { time: "11:00H", activity: "MUAY THAI" },
-      { time: "18:00H", activity: "JIU-JÍTSU KIDS (5 A 7 ANOS)" },
+      { time: "18:00H", activity: "JIU-JÍTSU KIDS (5 a 7 ANOS)" },
       {
         time: "19:10H",
-        activity: "JIU-JÍTSU KIDS - INSTRUTOR MICHAEL (8 A 13 ANOS)",
+        activity: "JIU-JÍTSU KIDS - Instrutor Michel (8 A 13 ANOS)",
+      },
+      { time: "18:00H", activity: "JIU-JÍTSU KIDS (5 A 7 ANOS)" },
+      {
+        time: "20:00H",
+        activity: "JIU-JÍTSU - INSTRUTOR MICHAEL (8 A 13 ANOS)",
       },
     ],
     "Sexta-feira": [
-      { time: "15:00H", activity: "MMA MISTO" },
       { time: "16:10H", activity: "MUAY THAI" },
-      { time: "17:10H", activity: "MUAY THAI KIDS" },
-      { time: "18:10H", activity: "JIU-JÍTSU KIDS" },
+      { time: "17:10H", activity: "MMA" },
+      {
+        time: "18:10H",
+        activity: "JIU-JÍTSU COM KIMONO (TREINO DE DRILL E RÓLA",
+      },
       { time: "19:15H", activity: "MUAY THAI MISTO" },
       { time: "20:15H", activity: "JIU-JÍTSU SEM KIMONO" },
     ],
@@ -65,20 +73,10 @@ function App() {
     ],
     Sexta: [{ time: "20:15H", activity: "MUAY THAI - INSTRUTOR GIOVANE" }],
     Sábado: [
-      { time: "07:00H", activity: "JIU-JÍTSU" },
-      { time: "08:00H", activity: "MUAY THAI KIDS" },
+      { time: "08:00H", activity: "JIU-JÍTSU FEMININO" },
       { time: "09:00H", activity: "MUAY THAI FEMININO" },
-      { time: "10:00H", activity: "MUAY THAI" },
-    ],
-  };
-
-  const joseBoiteuxSchedule = {
-    "Segunda e Quarta": [
-      { time: "19:30H", activity: "MUAY THAI - INSTRUTOR JAISON" },
-    ],
-    Domingo: [
-      { time: "08:00H", activity: "MUAY THAI KIDS - PROFESSOR TONI" },
-      { time: "09:00H", activity: "MUAY THAI ADULTO - PROFESSOR TONI" },
+      { time: "10:00H", activity: "MUAY THAI E BOXE (SPARRING)" },
+      { time: "10:45H", activity: "JIU-JÍTSU (RÓLAS)" },
     ],
   };
 
@@ -276,7 +274,7 @@ function App() {
             Nossos <span className="text-red-500">Horários</span>
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Ibirama Schedule */}
             <div className="bg-black rounded-lg p-6">
               <div className="flex items-center mb-6">
@@ -334,35 +332,6 @@ function App() {
                 </div>
               ))}
             </div>
-
-            {/* José Boiteux Schedule */}
-            <div className="bg-black rounded-lg p-6">
-              <div className="flex items-center mb-6">
-                <MapPin className="text-red-500 mr-3" size={24} />
-                <h3 className="text-2xl font-bold">JOSÉ BOITEUX</h3>
-              </div>
-
-              {Object.entries(joseBoiteuxSchedule).map(([day, classes]) => (
-                <div key={day} className="mb-6">
-                  <h4 className="text-red-500 font-bold text-lg mb-3">
-                    {day.toUpperCase()}
-                  </h4>
-                  <div className="space-y-2">
-                    {classes.map((cls, index) => (
-                      <div
-                        key={index}
-                        className="flex justify-between items-center bg-gray-800 p-3 rounded"
-                      >
-                        <span className="font-mono text-white">{cls.time}</span>
-                        <span className="text-gray-300 text-right text-sm">
-                          {cls.activity}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -374,7 +343,7 @@ function App() {
             Entre em <span className="text-white">Contato</span>
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <div>
               <h3 className="text-2xl font-bold mb-6">Unidade Ibirama</h3>
               <div className="space-y-4">
@@ -412,24 +381,6 @@ function App() {
                 </div>
               </div>
             </div>
-
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Unidade José Boiteux</h3>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <MapPin className="mr-3" size={20} />
-                  <span>Endereço: José Boiteux - SC</span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="mr-3" size={20} />
-                  <span>Telefone: (47)9618-4529</span>
-                </div>
-                <div className="flex items-center">
-                  <Clock className="mr-3" size={20} />
-                  <span>Segunda, Quarta e Domingo</span>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="text-center mt-12">
@@ -462,7 +413,7 @@ function App() {
             </span>
           </div>
           <p className="text-gray-400">
-            © 2024 Equipe Kaveira. Todos os direitos reservados. Forjando
+            © 2026 Equipe Kaveira. Todos os direitos reservados. Forjando
             campeões desde sempre.
           </p>
         </div>
